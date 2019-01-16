@@ -8,6 +8,7 @@ var hash = require('bcrypt-nodejs');
 var path = require('path');
 var passport = require('passport');
 var localStrategy = require('passport-local' ).Strategy;
+var cors = require('cors');
 
 // mongoose
 mongoose.connect('mongodb://localhost/mean-auth');
@@ -23,6 +24,7 @@ var routes = require('./routes/api.js');
 
 // define middleware
 app.use(logger('dev'));
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
